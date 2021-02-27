@@ -1,0 +1,36 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  gap: rem(23);
+
+  & div {
+    & strong {
+      font-size: rem(24);
+      font-weight: 600;
+      color: $title;
+    }
+
+    & p {
+      margin-top: rem(8);
+      font-size: rem(16);
+      
+      display: flex;
+      align-items: center;
+
+      & img {
+        height: rem(16);
+        margin-right: rem(9);
+        width: unset;
+      }
+    }
+  }
+
+  & img {
+    height: rem(88);
+    width: rem(88);
+    border-radius: 50%;
+  }
+}
