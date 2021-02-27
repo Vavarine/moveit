@@ -1,0 +1,70 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.countdown{
+  &__container {
+    margin-top: rem(54);
+
+    display: flex;
+    align-items: center;
+    font-family: Rajdhani;
+    font-weight: 600;
+    color: $title;
+
+    & > div {
+      flex: 1;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      background-color: $white;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+      border-radius: 5px;
+      font-size: rem(120);
+
+      & span {
+        flex: 1;
+        text-align: center;
+
+        &:first-child {
+          border-right: solid 1px $background;
+        }
+
+        &:last-child {
+          border-left: solid 1px $background;
+        }
+      }
+    }
+
+    & > span {
+      font-size: rem(104);
+      margin: 0 rem(8);
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: rem(80);
+    margin-top: rem(32);
+
+    border: none;
+    border-radius: 5px;
+    background-color: $blue;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: rem(16);
+
+    font-size: rem(20);
+    font-weight: 600;
+    color: $white;
+
+    transition: background-color .2s;
+
+    &:hover {
+      background-color: $blue-dark;
+    }
+  }
+}
