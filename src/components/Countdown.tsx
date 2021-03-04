@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import CloseSVG from './svgs/CloseSVG';
 import styles from '../styles/components/Countdown.module.scss';
+
+let countdownTimeout: NodeJS.Timeout;
 
 function Countdown() {
   const [time, setTime] = useState(25 * 60);
-  const [active, setActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
@@ -12,16 +15,22 @@ function Countdown() {
   const secondsCharArr = String(seconds).padStart(2, '0').split('');
 
   function startCountdown() {
-    setActive(true);
+    setIsActive(true);
+  }
+
+  function resetCountdown() {
+    clearTimeout(countdownTimeout);
+    setIsActive(false);
+    setTime(25 * 60);
   }
 
   useEffect(() => {
-    if(active && time > 0) {
-      setTimeout(() => {
+    if(isActive && time > 0) {
+      countdownTimeout = setTimeout(() => {
         setTime(time - 1);
       }, 1000);
     }
-  }, [active, time]);
+  }, [isActive, time]);
 
   return(
     <div>
@@ -36,14 +45,29 @@ function Countdown() {
           <span>{secondsCharArr[1]}</span>
         </div>
       </div>
-      <button 
-        type='button' 
-        className={styles.countdown__button}
-        onClick={startCountdown}
-      >
-        Iniciar um ciclo
-        <img src="icons/triangle.svg"/>
-      </button>
+
+      {isActive ? (
+        <button 
+          type='button' 
+          className={`${styles.countdown__button} ${styles.countdown__buttonActive}`}
+          onClick={resetCountdown}
+        >
+          Abandonar ciclo
+          <CloseSVG />
+        </button>
+      ) : (
+        <button 
+          type='button' 
+          className={styles.countdown__button}
+          onClick={startCountdown}
+        >
+          Iniciar Ciclo
+          <img src="icons/triangle.svg"/>
+        </button>
+      )}
+      
+
+      
     </div>
     
   )
