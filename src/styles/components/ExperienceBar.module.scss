@@ -20,10 +20,17 @@
 
     border-radius: 4px;
 
-    & > div {
+    & div {
       height: 100%;
       border-radius: 4px;
       background: $green;
+
+      transition: width 1s;
+    }
+
+    & span {
+      transition: left 1s;
+      white-space: nowrap;
     }
   }
 
