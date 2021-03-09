@@ -1,0 +1,22 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.containerCenter {
+  height: 100vh;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: rem(40) rem(32);
+
+  display: flex;
+  flex-direction: column;
+
+  & section {
+    flex: 1;
+    
+    display: grid;
+    grid-template-columns: rem(390) rem(470);
+    gap: rem(100);
+    align-content: center;
+  }
+}
+

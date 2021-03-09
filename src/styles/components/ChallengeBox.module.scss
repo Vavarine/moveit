@@ -1,0 +1,117 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.challengeBox {
+  &__container {
+    height: 100%;
+    
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  &__notActive{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & strong {
+      max-width: 70%;
+      font-size: rem(24);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    & p {
+      margin-top: rem(64);
+      max-width: 65%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: rem(16);
+
+      line-height: 1.4;
+    }
+  }
+
+  &__active {
+    height: 100%;
+    width: 100%;
+    padding: rem(25) rem(56) rem(32) rem(56);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & header {
+      width: calc(100% - 16px);
+      padding-bottom: rem(25);
+
+      font-size: rem(20);
+      color: $blue;
+      font-weight: 600;
+
+      border-bottom: solid 1px #D7D8DA;
+    }
+
+    & main {
+      flex-grow: 1;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      & strong {
+        margin-top: rem(24);
+
+        font-size: rem(30);
+        font-weight: 600;
+        color: $title;
+      }
+
+      & p {
+        margin-top: rem(8);
+        line-height: rem(24);
+      }
+    }
+
+    & footer {
+      width: 100%;
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &__button {
+    width: 50%;
+    height: 50px;
+
+    border: none;
+    border-radius: 5px;
+
+    color: $white;
+
+    transition: filter .2s;
+
+    &:hover {
+      filter: brightness(.9);
+    }
+
+    &.failed {
+      background-color: $red;
+    }
+
+    &.completed {
+      background-color: $green;
+    }
+  }
+}

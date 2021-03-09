@@ -1,0 +1,62 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.levelUpModal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(242, 243, 245, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+      position: relative;
+      width: rem(397);
+      padding: rem(20) rem(50) rem(40) rem(50);
+
+      background-color: $white;
+      text-align: center;
+      
+      border-radius: 5px;
+      box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.05);
+
+      & header {
+        background: url('/icons/levelup.svg') no-repeat center;
+        background-size: rem(153);
+        background-position-y: 40px;
+
+        font-size: rem(140);
+        font-weight: 600;
+        color: $blue;
+        text-shadow: 0px 10px 16px rgba(89, 101, 224, 0.3);
+      }
+
+      & strong {
+        font-size: rem(30);
+        color: $title;
+      }
+
+      & p {
+        margin-top: rem(4);
+        font-size: rem(20);
+        color: $text;
+      }
+
+      & button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        background: transparent;
+        border: 0;
+
+        font-size: 0;
+      }
+  }
+}

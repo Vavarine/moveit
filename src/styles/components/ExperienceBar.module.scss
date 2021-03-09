@@ -1,0 +1,42 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+
+.experienceBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  & span {
+    font-size: 0px rem(14);
+  }
+
+  &__bar {
+    position: relative;
+    margin: 0 rem(22);
+    height: 4px;
+
+    flex: 1;
+    background: $gray-line;
+
+    border-radius: 4px;
+
+    & div {
+      height: 100%;
+      border-radius: 4px;
+      background: $green;
+
+      transition: width 1s;
+    }
+
+    & span {
+      transition: left 1s;
+      white-space: nowrap;
+    }
+  }
+
+  &__current {
+    position: absolute;
+    top: 8px;
+    transform: translatex(-50%);
+  }
+}
