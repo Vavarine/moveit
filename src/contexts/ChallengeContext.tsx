@@ -10,6 +10,8 @@ interface Challenge {
   amount: number;
 }
 
+// teste
+
 interface ChallengesContextData {
   level: number,
   currentExpirience: number,
